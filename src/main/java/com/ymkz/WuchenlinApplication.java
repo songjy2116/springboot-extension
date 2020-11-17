@@ -1,5 +1,6 @@
 package com.ymkz;
 
+import com.ymkz.beanDefinition.MyBeandefinition;
 import org.springframework.boot.DefaultApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +17,6 @@ public class WuchenlinApplication {
 		List<String> paramsList = new ArrayList<>();
 		paramsList.add("MyApplicationRunner");
 		paramsList.add("MyCommandLineRunner");
-		paramsList.add("--server.port=8081");
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(WuchenlinApplication.class, paramsList.toArray(new String[0]));
 
 		DefaultApplicationArguments applicationArguments = (DefaultApplicationArguments)applicationContext.getBean("springApplicationArguments");
@@ -25,6 +25,13 @@ public class WuchenlinApplication {
 		optionNames.stream().forEach(System.out::println);
 		System.out.println("-----------------------------------");
 		nonOptionArgs.stream().forEach(System.out::println);
+
+		MyBeandefinition bean = applicationContext.getBean(MyBeandefinition.class);
+		System.out.println("bean name = " + bean.getName());
 	}
+
+
+
+
 
 }
