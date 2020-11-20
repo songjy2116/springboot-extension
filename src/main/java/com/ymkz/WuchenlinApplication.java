@@ -19,12 +19,12 @@ public class WuchenlinApplication {
 		paramsList.add("MyCommandLineRunner");
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(WuchenlinApplication.class, paramsList.toArray(new String[0]));
 
-		DefaultApplicationArguments applicationArguments = (DefaultApplicationArguments)applicationContext.getBean("springApplicationArguments");
-		Set<String> optionNames = applicationArguments.getOptionNames();
-		List<String> nonOptionArgs = applicationArguments.getNonOptionArgs();
-		optionNames.stream().forEach(System.out::println);
-		System.out.println("-----------------------------------");
-		nonOptionArgs.stream().forEach(System.out::println);
+//		DefaultApplicationArguments applicationArguments = (DefaultApplicationArguments)applicationContext.getBean("springApplicationArguments");
+//		Set<String> optionNames = applicationArguments.getOptionNames();
+//		List<String> nonOptionArgs = applicationArguments.getNonOptionArgs();
+//		optionNames.stream().forEach(System.out::println);
+//		System.out.println("-----------------------------------");
+//		nonOptionArgs.stream().forEach(System.out::println);
 
 		MyBeandefinition bean = applicationContext.getBean(MyBeandefinition.class);
 		System.out.println("bean name = " + bean.getName());
