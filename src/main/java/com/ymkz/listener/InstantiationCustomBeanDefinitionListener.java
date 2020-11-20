@@ -4,6 +4,7 @@ import com.ymkz.beanDefinition.MyBeandefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.context.ApplicationListener;
@@ -18,10 +19,9 @@ public class InstantiationCustomBeanDefinitionListener implements ApplicationLis
         AbstractBeanDefinition abstractBeanDefinition = customBeanDefinitionTest();
         DefaultListableBeanFactory defaultListableBeanFactory = (DefaultListableBeanFactory)applicationContext.getBeanFactory();
 
-//        BeanNameGenerator beanNameGenerator = (BeanNameGenerator)defaultListableBeanFactory.getBean(AnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR);
-//        String beanName = beanNameGenerator.generateBeanName(abstractBeanDefinition, defaultListableBeanFactory);
-//        System.out.println("custom bean name = " + beanName);
-        defaultListableBeanFactory.registerBeanDefinition(abstractBeanDefinition.getBeanClass().getSimpleName(), abstractBeanDefinition);
+        String beanName = BeanDefinitionReaderUtils.generateBeanName(abstractBeanDefinition, defaultListableBeanFactory);
+        System.out.println("beanName = " + beanName);
+        defaultListableBeanFactory.registerBeanDefinition(beanName, abstractBeanDefinition);
     }
 
 
