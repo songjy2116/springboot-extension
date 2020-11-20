@@ -26,8 +26,8 @@ public class WuchenlinApplication {
 //		System.out.println("-----------------------------------");
 //		nonOptionArgs.stream().forEach(System.out::println);
 
-		MyBeandefinition bean = applicationContext.getBean(MyBeandefinition.class);
-		System.out.println("bean name = " + bean.getName());
+//		MyBeandefinition bean = applicationContext.getBean(MyBeandefinition.class);
+//		System.out.println("bean name = " + bean.getName());
 	}
 
 
