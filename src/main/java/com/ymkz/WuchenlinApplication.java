@@ -28,6 +28,8 @@ public class WuchenlinApplication {
 
 //		MyBeandefinition bean = applicationContext.getBean(MyBeandefinition.class);
 //		System.out.println("bean name = " + bean.getName());
+		
+		// git rebase 3
 	}
 
 
